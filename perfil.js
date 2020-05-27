@@ -25,7 +25,9 @@ function carregaperfil() {
       .replace("{{RACF}}", usuario.racf)
       .replace("{{SETOR}}", usuario.setor)
       .replace("{{TELEFONE}}", usuario.telefone);
+}
 
+function carregapedidos(){
    var todosPedidos = "";
    for (i = 0; i < usuario.pedidos.length; i++) {
       todosPedidos = todosPedidos + templatePedidos.replace("{{DATA}}", usuario.pedidos[i].data)
@@ -39,4 +41,13 @@ function carregaperfil() {
 function logout() {
    localStorage.removeItem("VMuser");
    window.location = "index.html";
+}
+
+function nova() {
+   window.location = "nova.html";
+}
+
+function startperfil(){
+   carregaperfil();
+   carregapedidos();
 }

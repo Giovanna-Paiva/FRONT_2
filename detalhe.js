@@ -1,7 +1,3 @@
-var templateFoto = '<img src="{{IMAGEMFOTO}}" style="width:180px;height:180px">';
-var templateBio = '<h3> {{NOME}} </h3> <hr> <p> RACF: {{RACF}}</p> ' +
-    ' <p> SETOR: {{SETOR}}</p>' +
-    ' <p> TELEFONE: {{TELEFONE}}</p>';
 var templateSolicitacao = '<div class="row">' +
     '<div class="col-12"> Solicitação: {{NUM}} </div>' +
     '<div class="col-12"> {{DATA}} - {{OBSERVACOES}} </div>' +
@@ -52,7 +48,7 @@ function recuperaDetalhe() {
 
     // inicio das alterações
 
-     var idmaquina = usuario.pedidos[id - 1].maquina.id;
+   var idmaquina = usuario.pedidos[id - 1].maquina.id;  
      var process = usuario.pedidos[id - 1].maquina.processador;
      var memo = usuario.pedidos[id - 1].maquina.memoriaGB;
      var capacid = usuario.pedidos[id - 1].maquina.capacidadeHD;
@@ -76,13 +72,6 @@ function recuperaDetalhe() {
     }
 
     // fim das alterções 
-
-
-    document.getElementById("foto").innerHTML = templateFoto.replace("{{IMAGEMFOTO}}", usuario.linkFoto);
-    document.getElementById("personal").innerHTML = templateBio.replace("{{NOME}}", usuario.nome)
-        .replace("{{RACF}}", usuario.racf)
-        .replace("{{SETOR}}", usuario.setor)
-        .replace("{{TELEFONE}}", usuario.telefone);
 
     // Inicio - GI
 
@@ -121,9 +110,9 @@ function recuperaDetalhe() {
 
 }
 
-// Fim - GI
 
-function logout() {
-    localStorage.removeItem("VMuser");
-    window.location = "index.html";
+function startdetalhe(){
+    carregaperfil();
+    recuperaDetalhe();
 }
+// Fim - GI
